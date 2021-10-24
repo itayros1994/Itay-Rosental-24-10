@@ -1,27 +1,16 @@
+import { WeatherApp } from "./pages/WeatherApp"
+import { Favorites } from "./pages/Favorites"
+
 export const routes = [
-
-    // {
-    //     path: '/toy/edit/:productId?',
-    //     component: ToyEdit
-    // },
-    // {
-    //     path: '/toy/details/:toyId',
-    //     component: ToyDetails
-    // },
-
+    
     {
         path: '/',
-        component: ShopingCartApp
+        component: WeatherApp
     }, 
     {
-        path: '/shoppingCart/edit/:productId?',
-        component: ShoppingCartEdit
+        path: '/favorites',
+        component: Favorites
         
-    }, 
-    {
-        path: '/shoppingCart/cart/',
-        component: UserCart
-        
-    }, 
+    },  
 
 ]

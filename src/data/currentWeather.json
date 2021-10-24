@@ -1,0 +1,30 @@
+[
+    {
+      "LocalObservationDateTime": "2021-10-24T19:30:00+08:00",
+      "EpochTime": 1635075000,
+      "WeatherText": "Cloudy",
+      "WeatherIcon": 7,
+      "HasPrecipitation": false,
+      "PrecipitationType": null,
+      "LocalSource": {
+        "Id": 7,
+        "Name": "Huafeng",
+        "WeatherCode": "01"
+      },
+      "IsDayTime": false,
+      "Temperature": {
+        "Metric": {
+          "Value": 16.8,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Imperial": {
+          "Value": 62,
+          "Unit": "F",
+          "UnitType": 18
+        }
+      },
+      "MobileLink": "http://www.accuweather.com/en/cn/longyan/57911/current-weather/57911?lang=en-us",
+      "Link": "http://www.accuweather.com/en/cn/longyan/57911/current-weather/57911?lang=en-us"
+    }
+  ]

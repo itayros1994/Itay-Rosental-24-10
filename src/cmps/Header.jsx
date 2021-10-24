@@ -1,9 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export function Header() {
+export const Header = () => {
     return (
-        <div className="header">
-            header!
-        </div>
+        <header className="app-header">
+            <span className="logo">Herolo Weather Task</span>
+            <div>
+            <div className="header-links">
+                <span className="home-link"><Link to="/">home</Link></span>
+                <span className="favorites"><Link to="/favorites">favorites</Link></span>
+            </div>
+            </div>
+        </header>
     )
 }

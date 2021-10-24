@@ -1,0 +1,46 @@
+[{
+        "Version": 1,
+        "Key": "328328",
+        "Type": "City",
+        "Rank": 10,
+        "LocalizedName": "London",
+        "Country": {
+          "ID": "GB",
+          "LocalizedName": "United Kingdom"
+        },
+        "AdministrativeArea": {
+          "ID": "LND",
+          "LocalizedName": "London"
+        }
+      },
+      {
+        "Version": 1,
+        "Key": "57911",
+        "Type": "City",
+        "Rank": 23,
+        "LocalizedName": "Longyan",
+        "Country": {
+          "ID": "CN",
+          "LocalizedName": "China"
+        },
+        "AdministrativeArea": {
+          "ID": "FJ",
+          "LocalizedName": "Fujian"
+        }
+      },
+      {
+        "Version": 1,
+        "Key": "77666",
+        "Type": "City",
+        "Rank": 25,
+        "LocalizedName": "Longgang District",
+        "Country": {
+          "ID": "CN",
+          "LocalizedName": "China"
+        },
+        "AdministrativeArea": {
+          "ID": "GD",
+          "LocalizedName": "Guangdong"
+        }
+      }
+]
