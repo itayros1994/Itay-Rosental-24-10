@@ -1,58 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  loadCurrentWeather,
-  loadDailyForecast,
-} from "../store/action/weather.action";
-import { WeatherService } from "../services/WeatherService";
 import { CurrentWeather } from "../cmps/CurrentWeather";
 import { DailyForecast } from "../cmps/DailyForecast";
+import Button from "@mui/material/Button";
+import { setToFavorites } from "../store/action/weather.action";
 
 export function WeatherApp() {
-  const [locations, setLocations] = useState([]);
-
-  const { currentWeather, dailyForecast } = useSelector(
+  const dispatch = useDispatch();
+  const { currentWeather, dailyForecast, currentLocation } = useSelector(
     (state) => state.weatherModule
   );
 
-  const dispatch = useDispatch();
-
-  const onSetCity = (ev) => {
-    let location = ev.target.value;
-    WeatherService.getLocations(location).then((locations) =>
-      setLocations(locations)
-    );
-  };
-
-  const onSetKey = (locationKey) => {
-    dispatch(loadCurrentWeather(locationKey));
-    dispatch(loadDailyForecast(locationKey));
+  const onSetToFavorite = () => {
+    dispatch(setToFavorites(currentLocation));
   };
 
   return (
     <div>
-      <form className="search-container" autoComplete="off">
-        <input
-          variant="outlined"
-          className="search-input"
-          color="primary"
-          type="text"
-          onChange={onSetCity}
-          placeholder="Search City"
-        ></input>
-        <ul className="locations-names-container">
-          {locations.map((location) => (
-            <div
-              onClick={() => onSetKey(location.Key)}
-              className="locations-names"
-              key={location.Key}
-            >
-              {location.LocalizedName}
-            </div>
-          ))}
-        </ul>
-      </form>
-      <CurrentWeather currentWeather={currentWeather}></CurrentWeather>
+      <div className="top-container">
+        <CurrentWeather currentWeather={currentWeather}></CurrentWeather>
+        <Button
+          onClick={onSetToFavorite}
+          className="favorite-btn"
+          variant="contained"
+        >
+          Add To Favorite
+        </Button>
+      </div>
       <DailyForecast dailyForecast={dailyForecast}></DailyForecast>
     </div>
   );

@@ -31,3 +31,11 @@ function getDailyForecast(locationKey) {
         .get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${API_KEY}&language=en&details=true&metric=true"`)
         .then(res => res.data.DailyForecasts)
 }
+
+
+// function getLocationByKey(locationKey) {
+
+//     let location = 
+
+
+// }

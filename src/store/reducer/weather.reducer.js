@@ -1,6 +1,10 @@
 const initialState = {
     currentWeather: {},
-    dailyForecast: {}
+    dailyForecast: {},
+    currentLocation: {},
+    favoritesLocations: [],
+    darkMode: false
+
 }
 
 export function weatherReducer(state = initialState, action) {
@@ -9,6 +13,12 @@ export function weatherReducer(state = initialState, action) {
             return { ...state, currentWeather: action.currentWeather }
         case 'SET_DAILY_FORECAST':
             return { ...state, dailyForecast: action.dailyForecast }
+        case 'SET_LOCATION_FAVORITE':
+            return { ...state, favoritesLocations: [...state.favoritesLocations, action.currentLocation] }
+        case 'SET_CURRENT_LOCATION':
+            return { ...state, currentLocation: action.currentLocation }
+        case 'TOGGLE_DARK_MODE':
+            return { ...state, darkMode: !state.darkMode }
         default:
             return state
     }

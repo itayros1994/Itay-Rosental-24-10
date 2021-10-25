@@ -31,3 +31,47 @@ export function loadDailyForecast(locationKey) {
   }
 }
 
+export function setCurrentLocation(currentLocation) {
+  return (dispatch) => {
+    try {
+      const action = {
+        type: 'SET_CURRENT_LOCATION',
+        currentLocation
+      }
+      dispatch(action)
+    } catch (err) {
+      console.log('error from set curr location', err);
+    }
+  }
+}
+
+
+export function setToFavorites(currentLocation) {
+  return (dispatch) => {
+    try {
+      const action = {
+        type: 'SET_LOCATION_FAVORITE',
+        currentLocation
+      }
+      dispatch(action)
+    } catch (err) {
+      console.log('error from catch add to favorite', err);
+    }
+  }
+}
+
+export function toggleDarkMode() {
+  return (dispatch) => {
+    try {
+      const action = {
+        type: 'TOGGLE_DARK_MODE',
+      }
+      dispatch(action)
+    } catch (err) {
+      console.log('error from catch add to favorite', err);
+    }
+  }
+}
+
+
+
