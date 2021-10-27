@@ -61,7 +61,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 
 export function Header() {
   const dispatch = useDispatch();
-  const { darkMode, favoritesLocations } = useSelector(
+  const { darkMode, favoritesLocations ,currentLocation } = useSelector(
     (state) => state.weatherModule
   );
 
@@ -189,17 +189,14 @@ export function Header() {
             </Search>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: "none", sm: "block" } }}
+            >
+              {currentLocation.LocalizedName}
+            </Typography>
               <IconButton
                 size="large"
                 edge="end"

@@ -1,13 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { CurrentWeather } from "../cmps/CurrentWeather";
 import { DailyForecast } from "../cmps/DailyForecast";
 import { WeatherService } from "../services/WeatherService";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
-import { useEffect } from "react";
-import { toggleSnackBar } from "../store/action/weather.action";
-import { loadCurrentWeather, loadDailyForecast, setCurrentLocation } from "../store/action/weather.action";
+import {
+  loadCurrentWeather,
+  loadDailyForecast,
+  setCurrentLocation,
+  toggleSnackBar
+} from "../store/action/weather.action";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -20,6 +23,7 @@ export function WeatherApp() {
     userLocation,
     snackBarOpen,
     errorMessege,
+    currentLocation,
   } = useSelector((state) => state.weatherModule);
 
   const dispatch = useDispatch();
@@ -32,12 +36,20 @@ export function WeatherApp() {
   };
 
   useEffect(() => {
-    WeatherService.getKeyFromCords(userLocation).then((res) => {
-      dispatch(loadCurrentWeather(res.Key));
-      dispatch(loadDailyForecast(res.Key));
-      dispatch(setCurrentLocation({key : res.Key , LocalizedName: res.LocalizedName})); 
-    });
-  }, []);
+    if(Object.keys(currentLocation).length === 0) {
+      WeatherService.getKeyFromCords(userLocation).then((res) => {
+        dispatch(loadCurrentWeather(res.Key));
+        dispatch(loadDailyForecast(res.Key));
+        dispatch(
+          setCurrentLocation(res)
+          );
+        }).catch((err) => dispatch(toggleSnackBar(err)));
+      }
+    }
+  , []);
+
+  
+
 
   return (
     <div>

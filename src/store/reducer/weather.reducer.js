@@ -19,6 +19,7 @@ export function weatherReducer(state = initialState, action) {
         case 'SET_DAILY_FORECAST':
             return { ...state, dailyForecast: action.dailyForecast }
         case 'SET_LOCATION_FAVORITE':
+            if(state.favoritesLocations.includes(action.currentLocation)) return state 
             return { ...state, favoritesLocations: [...state.favoritesLocations, action.currentLocation] }
         case 'SET_CURRENT_LOCATION':
             return { ...state, currentLocation: action.currentLocation }

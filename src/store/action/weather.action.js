@@ -11,7 +11,7 @@ export function loadCurrentWeather(locationKey) {
       }
       dispatch(action)
     } catch (err) {
-      console.log('error from catch load current weather', err);
+      dispatch(toggleSnackBar(err));
     }
   }
 }
@@ -26,76 +26,57 @@ export function loadDailyForecast(locationKey) {
       }
       dispatch(action)
     } catch (err) {
-      console.log('error from catch load daily forecast', err);
+      dispatch(toggleSnackBar(err));
+
     }
   }
 }
 
 export function setCurrentLocation(currentLocation) {
   return (dispatch) => {
-    try {
       const action = {
         type: 'SET_CURRENT_LOCATION',
         currentLocation
       }
       dispatch(action)
-    } catch (err) {
-      console.log('error from set curr location', err);
-    }
   }
 }
 
 export function removeFromFavorites(locationKey) {
   return (dispatch) => {
-    try {
       const action = {
         type: 'REMOVE_LOCATION_FAVORITE',
         locationKey
       }
-      dispatch(action)
-    } catch (err) {
-      console.log('error from catch add to favorite', err);
-    }
+      dispatch(action) 
   }
 }
 
 export function setToFavorites(currentLocation) {
   return (dispatch) => {
-    try {
       const action = {
         type: 'SET_LOCATION_FAVORITE',
         currentLocation 
       }
       dispatch(action)
-    } catch (err) {
-      console.log('error from catch add to favorite', err);
-    }
   }
 }
 
 export function toggleDarkMode() {
   return (dispatch) => {
-    try {
       const action = {
         type: 'TOGGLE_DARK_MODE',
       }
       dispatch(action)
-    } catch (err) {
-      console.log('error from catch add to favorite', err);
-    }
   }
 }
 export function toggleSnackBar(errorMessege) {
   return (dispatch) => {
-    try {
       const action = {
         type: 'TOGGLE_SNACK_BAR',
-        errorMessege
-      }
+        errorMessege}
       dispatch(action)
-    } catch (err) {
-      console.log('error from toggle snack bar', err);
-    }
+      
   }
 }
 

@@ -10,11 +10,10 @@ export function DayPreview({ dayForecast }) {
   let day = new Date(dayForecast.Date).toString();
   return (
     <div className="daily-forecast-container">
-
     <article class="widget">
   <div class="weatherIcon"><img src={iconsServise.getWeatherIcon(dayForecast.Day.Icon)} alt="" /></div>
   <div class="weatherInfo">
-    <div class="temperature"><span>{celciusConverter(dayForecast.Temperature.Minimum.Value)}&deg;</span></div>
+    <div class="temperature"><span>{celciusConverter(dayForecast.Temperature.Maximum.Value)}&deg;</span></div>
     <div class="description">    
       <div class="weatherCondition">{dayForecast.Day.IconPhrase}</div>    
     </div>
