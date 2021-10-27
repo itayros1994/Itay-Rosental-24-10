@@ -3,7 +3,7 @@
       "LocalObservationDateTime": "2021-10-24T19:30:00+08:00",
       "EpochTime": 1635075000,
       "WeatherText": "Cloudy",
-      "WeatherIcon": 7,
+      "WeatherIcon": 2,
       "HasPrecipitation": false,
       "PrecipitationType": null,
       "LocalSource": {

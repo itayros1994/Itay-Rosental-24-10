@@ -45,13 +45,26 @@ export function setCurrentLocation(currentLocation) {
   }
 }
 
+export function removeFromFavorites(locationKey) {
+  return (dispatch) => {
+    try {
+      const action = {
+        type: 'REMOVE_LOCATION_FAVORITE',
+        locationKey
+      }
+      dispatch(action)
+    } catch (err) {
+      console.log('error from catch add to favorite', err);
+    }
+  }
+}
 
 export function setToFavorites(currentLocation) {
   return (dispatch) => {
     try {
       const action = {
         type: 'SET_LOCATION_FAVORITE',
-        currentLocation
+        currentLocation 
       }
       dispatch(action)
     } catch (err) {
@@ -69,6 +82,19 @@ export function toggleDarkMode() {
       dispatch(action)
     } catch (err) {
       console.log('error from catch add to favorite', err);
+    }
+  }
+}
+export function toggleSnackBar(errorMessege) {
+  return (dispatch) => {
+    try {
+      const action = {
+        type: 'TOGGLE_SNACK_BAR',
+        errorMessege
+      }
+      dispatch(action)
+    } catch (err) {
+      console.log('error from toggle snack bar', err);
     }
   }
 }

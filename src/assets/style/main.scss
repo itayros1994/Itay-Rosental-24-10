@@ -1,13 +1,11 @@
-.app-header {
-  background-color: rgb(73, 156, 163);
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  height: 70px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1px;
+@import "./cardsStyle.scss";
+@import "./dailyForecast.scss";
+@import "./favorites.scss";
+
+.App {
+  // background-color: #001E3C;
+  // background-color: rgb(223, 223, 223);
+  height: 900px;
 }
 
 .footer {
@@ -19,11 +17,13 @@
   width: 100%;
   height: 60px; /* Height of the footer */
   background: #1976d2;
+  display: none;
 }
 
-.coffee-rights{
+.coffee-rights {
   font-size: 12px;
-  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .home-link {
@@ -42,16 +42,8 @@
   flex-direction: column;
 }
 
-.locations-names {
-  border: 2px solid #dbdbdbc0;
-  width: 350px;
-  height: 30px;
-  border-radius: 10px;
-  transition: 0.3s;
-  margin-right: 30px;
-  margin-bottom: 1px;
-  font-weight: inherit;
-  color: #262627;
+.search-bar {
+  width: 300px;
 }
 
 .locations-names-container {
@@ -60,74 +52,51 @@
   transition: box-shadow 0.3s;
 }
 
-.search-input {
-  cursor: pointer;
-  width: 70%;
-  display: inline-block;
-  font-size: 20px;
-  padding: 0.7rem 1.6rem 0.75rem;
-  color: inherit;
-  font-weight: inherit;
-  line-height: 0.5rem;
-  border-radius: 2rem;
-  transition: box-shadow 0.3s;
-  color: #262627;
-  background-repeat: no-repeat;
-  background-position: 100%;
-  background-size: contain;
-  background-size: 20px;
-  background-position-x: 95%;
-  border: 2px solid #dbdbdb;
-}
-
-.daily-list {
-  display: flex;
-  justify-content: center;
-  padding: 120px;
-}
-
 .link {
   color: white;
 }
 
-.daily-forecast {
+.link-mobile {
+  color: black;
+}
+
+.current-weather-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  width: 200px;
-  height: 280px;
-  margin: 5px;
-  transition: 0.3s;
-  border-radius: 10px;
-}
-
-.daily-forecast:hover {
-  padding: 3px;
-  cursor: pointer;
-  transition: 1s;
-}
-
-img {
-  width: 100px;
-  height: 100px;
-  margin: auto;
+  align-items: center;
+  width: 100%;
 }
 
 .current-weather {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  width: 180px;
-  height: 220px;
+  width: 100%;
+  height: 235px;
   border-radius: 10px;
+  background-color: rgb(233, 233, 233);
+  font-size: 25px;
+  font-family: sans-serif;
+  margin: 15px;
 }
 
+.MuiPaper-root {
+  width: 100%;
+}
 .top-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  margin: 60px;
+  width: 100%;
+  margin: auto;
+  padding: 45px;
 }
-
 
 .favorite-btn {
   width: 200px;
   height: 70px;
+}
+
+.main-container {
+  width: 80%;
+  margin: auto;
 }

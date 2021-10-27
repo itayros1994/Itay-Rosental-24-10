@@ -1,24 +1,42 @@
 import React from "react";
 import Card from "@mui/material/Card";
-
+import { iconsServise } from "../services/IconsService";
 
 export function DayPreview({ dayForecast }) {
+  const celciusConverter = (farnhiet) => {
+    let celcius = (5 * (farnhiet - 32)) / 9;
+    return Math.round(celcius);
+  };
   let day = new Date(dayForecast.Date).toString();
   return (
-    <Card variant="elevation" className="daily-forecast" >
-      <div>{day.substring(0, 3)}</div>
-      <img
-        src="data:image/jpeg;base64,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"
-        alt=""
-      />
-      <div>
-        {dayForecast.Temperature.Minimum.Value}
-        <span>{dayForecast.Temperature.Minimum.Unit}</span>
-      </div>
-      <div>
-        {dayForecast.Temperature.Maximum.Value}
-        {dayForecast.Temperature.Maximum.Unit}
-      </div>
-    </Card>
+    <div className="daily-forecast-container">
+
+    <article class="widget">
+  <div class="weatherIcon"><img src={iconsServise.getWeatherIcon(dayForecast.Day.Icon)} alt="" /></div>
+  <div class="weatherInfo">
+    <div class="temperature"><span>{celciusConverter(dayForecast.Temperature.Minimum.Value)}&deg;</span></div>
+    <div class="description">    
+      <div class="weatherCondition">{dayForecast.Day.IconPhrase}</div>    
+    </div>
+  </div>
+  <div class="date">{day.substring(0,3)}</div>
+</article>
+    </div>
   );
 }
+
+
+
+
+// {/* <Card variant="elevation" className="daily-forecast">
+//       <div>{day.substring(0, 3)}</div>
+//       <img src={iconsServise.getWeatherIcon(dayForecast.Day.Icon)} alt="" />
+//       <div>
+//         {celciusConverter(dayForecast.Temperature.Minimum.Value)}
+//         <span>{"C"}</span>
+//       </div>
+//       <div className="title-appear appear">
+//         {celciusConverter(dayForecast.Temperature.Maximum.Value)}
+//         {"C"}
+//       </div>
+//     </Card> */}

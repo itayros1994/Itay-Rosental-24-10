@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Autocomplete } from "@mui/material";
+import { Autocomplete, colors } from "@mui/material";
 import { TextField } from "@mui/material";
 import { WeatherService } from "../services/WeatherService";
 import {
   loadCurrentWeather,
   loadDailyForecast,
   setCurrentLocation,
+  toggleSnackBar,
 } from "../store/action/weather.action";
 
 export function SearchLocation() {
   const dispatch = useDispatch();
   const [locations, setLocations] = useState([]);
 
-  const onSetCity = (_, locationName) => {
-    WeatherService.getLocations(locationName).then((locations) =>
-      setLocations(locations || [])
-    );
+  const onSetCity = (_, startWith) => {
+    WeatherService.getLocations(startWith)
+      .then((locations) => setLocations(locations || []))
+      .catch((err) => dispatch(toggleSnackBar(err)));
   };
 
   const onSetKey = (_, location) => {
@@ -25,9 +26,8 @@ export function SearchLocation() {
     dispatch(loadDailyForecast(location.Key));
     dispatch(setCurrentLocation(location));
   };
-
   return (
-    <div>
+    <div className="search-bar">
       <Autocomplete
         disablePortal
         id="combo-box-demo"
@@ -35,9 +35,8 @@ export function SearchLocation() {
         onChange={onSetKey}
         options={locations}
         getOptionLabel={(location) => location.LocalizedName}
-        sx={{ width: 300 }}
         renderInput={(params) => (
-          <TextField {...params} label="Search City..." />
+          <TextField variant="outlined" {...params} label="Search City..." />
         )}
       />
     </div>
