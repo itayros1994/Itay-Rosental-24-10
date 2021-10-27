@@ -16,6 +16,7 @@
     "react-autocomplete": "^1.8.1",
     "react-autocomplete-places": "^7.3.0",
     "react-dom": "^17.0.2",
+    "react-elastic-carousel": "^0.11.5",
     "react-loader-spinner": "^4.0.0",
     "react-material-ui-carousel": "^2.3.5",
     "react-redux": "^7.2.5",
@@ -24,6 +25,7 @@
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
     "sass": "^1.43.3",
+    "styled-components": "^5.3.3",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

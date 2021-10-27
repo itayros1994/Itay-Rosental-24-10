@@ -8,9 +8,11 @@ import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import { toggleDarkMode } from "../store/action/weather.action";
+import {
+  toggleDarkMode,
+  toggleTemperature,
+} from "../store/action/weather.action";
 import { useDispatch, useSelector } from "react-redux";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -18,6 +20,7 @@ import { SearchLocation } from "./SearchLocation";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
+import Switch from "@mui/material/Switch";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -45,23 +48,9 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   justifyContent: "center",
 }));
 
-// const StyledInputBase = styled(InputBase)(({ theme }) => ({
-//   color: "inherit",
-//   "& .MuiInputBase-input": {
-//     padding: theme.spacing(1, 1, 1, 0),
-//     // vertical padding + font size from searchIcon
-//     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-//     transition: theme.transitions.create("width"),
-//     width: "100%",
-//     [theme.breakpoints.up("md")]: {
-//       width: "20ch",
-//     },
-//   },
-// }));
-
 export function Header() {
   const dispatch = useDispatch();
-  const { darkMode, favoritesLocations ,currentLocation } = useSelector(
+  const { darkMode, favoritesLocations, currentLocation ,celcius } = useSelector(
     (state) => state.weatherModule
   );
 
@@ -69,15 +58,15 @@ export function Header() {
     dispatch(toggleDarkMode());
   };
 
+  const setToggleTemperature = () => {
+    dispatch(toggleTemperature());
+  };
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -161,7 +150,7 @@ export function Header() {
   );
 
   return (
-    <div>
+    <div className="header">
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
@@ -189,14 +178,23 @@ export function Header() {
             </Search>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: "none", sm: "block" } }}
-            >
-              {currentLocation.LocalizedName}
-            </Typography>
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{ display: { xs: "none", sm: "block" } }}
+              >
+                {currentLocation.LocalizedName}
+              </Typography>
+              <IconButton
+                size="large"
+                aria-label="show 17 new notifications"
+                color="inherit"
+              >
+                  <Switch color="default" onClick={setToggleTemperature}></Switch>
+                  <span className="temperature-sign">{celcius ? 'C' : 'F'}</span>
+                
+              </IconButton>
               <IconButton
                 size="large"
                 edge="end"

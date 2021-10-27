@@ -6,32 +6,11 @@ $color3: #b8b8b8;
 $color4: #ffcd41;
 $color5: #2092a9;
 
-// .daily-forecast {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-evenly;
-//   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-//   width: 200px;
-//   height: 280px;
-//   margin: 10px;
-//   transition: 0.3s;
-//   border-radius: 10px;
-//   font-family: "Lato", sans-serif;
-//   font-weight: 300;
-//   font-size: 28px;
-//   color: lighten($color3, 10%);
-//   bottom: 0;
-//   left: 35px;
-// }
-
 .daily-list {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  // box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-  //   rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 @media only screen and (max-width: 600px) {
   .main-container {
@@ -42,6 +21,7 @@ $color5: #2092a9;
     display: flex;
     flex-direction: column;
     width: 100% !important;
+  align-items:  stretch;
   }
 
   .search-bar {
@@ -86,7 +66,7 @@ $color5: #2092a9;
     margin: 5px;
     flex-wrap: wrap;
     cursor: pointer;
-    border-radius: $border-radius;
+    // border-radius: $border-radius;
   }
   .widget2 {
     //   position: absolute;
@@ -98,6 +78,6 @@ $color5: #2092a9;
     margin: 5px;
     flex-wrap: wrap;
     cursor: pointer;
-    border-radius: $border-radius;
+    // border-radius: $border-radius;
   }
 }

@@ -4,10 +4,7 @@ const initialState = {
     currentLocation: {},
     favoritesLocations: [],
     darkMode: false,
-    userLocation: {
-        latitude: '32.558147',
-        longitude: '35.074886'
-    },
+    celcius : true,
     snackBarOpen : false,
     errorMessege : ''
 }
@@ -25,6 +22,8 @@ export function weatherReducer(state = initialState, action) {
             return { ...state, currentLocation: action.currentLocation }
         case 'TOGGLE_DARK_MODE':
             return { ...state, darkMode: !state.darkMode }
+        case 'TOGGLE_TEMPERATURE':
+            return { ...state, celcius: !state.celcius }
         case 'TOGGLE_SNACK_BAR':
             return { ...state, snackBarOpen: !state.snackBarOpen, errorMessege: action.errorMessege  }
         case 'REMOVE_LOCATION_FAVORITE':

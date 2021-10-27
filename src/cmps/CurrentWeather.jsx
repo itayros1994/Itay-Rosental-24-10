@@ -3,23 +3,16 @@ import React from "react";
 import Loader from "react-loader-spinner";
 import { useSelector, useDispatch } from "react-redux";
 import { setToFavorites } from "../store/action/weather.action";
-import Button from "@mui/material/Button";
 import { iconsServise } from "../services/IconsService";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 export function CurrentWeather({ currentWeather }) {
-  const { currentLocation } = useSelector((state) => state.weatherModule);
+  const { currentLocation, celcius } = useSelector((state) => state.weatherModule);
 
   const dispatch = useDispatch();
   const onSetToFavorite = (ev) => {
     dispatch(setToFavorites(currentLocation));
   };
-
-  // if(!currentWeather[0].LocalObservationDateTime) return
-  // let day = new Date(currentWeather[0].LocalObservationDateTime).toString();
-  let day = "MON";
-  console.log(day);
-  console.log(currentWeather);
 
   if (!currentWeather.length)
     return (
@@ -48,18 +41,66 @@ export function CurrentWeather({ currentWeather }) {
         <div class="current-buttom-container">
         <div class="weatherInfo2">
           <div class="temperature2">
-            <span>{currentWeather[0].Temperature.Metric.Value}&deg;</span>
+            {celcius ? <span>{currentWeather[0].Temperature.Metric.Value}c&deg;</span> : <span>{currentWeather[0].Temperature.Imperial.Value}f&deg;</span>}
           </div>
           <div class="description2">
             <div class="weatherCondition2">{currentWeather[0].WeatherText}</div>
             <div class="place2">{currentLocation.LocalizedName}</div>
           </div>
         </div>
-        <div class="date2">{day.substring(0, 3)}</div>
+        <div class="date2">{new Date(currentWeather[0].LocalObservationDateTime).toString().substring(0, 3)}</div>
         </div>
       </article>
     </div>
   );
 }
+
+
+
+
+
+
+// import { Card } from "@mui/material";
+// import React from "react";
+// import Loader from "react-loader-spinner";
+// import { useSelector, useDispatch } from "react-redux";
+// import { setToFavorites } from "../store/action/weather.action";
+// import { iconsServise } from "../services/IconsService";
+// import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
+// export function CurrentWeather({ currentWeather }) {
+//   const { currentLocation ,celcius } = useSelector((state) => state.weatherModule);
+
+//   const dispatch = useDispatch();
+//   const onSetToFavorite = (ev) => {
+//     dispatch(setToFavorites(currentLocation));
+//   };
+
+//   if (!currentWeather.length)
+//     return (
+//       <div>
+//         <Loader></Loader>
+//       </div>
+//     );
+//   return (
+//     <div className="current-weather-container">
+//           </FavoriteBorderIcon>
+//         </div>
+//         <div class="current-buttom-container">
+//         <div class="weatherInfo2">
+//           <div class="temperature2">
+//             {celcius ? <span>{currentWeather[0].Temperature.Metric.Value}&deg;c</span> : <span>{currentWeather[0].Temperature.Imperial.Value}&deg;f</span>}
+//           </div>
+//           <div class="description2">
+//             <div class="weatherCondition2">{currentWeather[0].WeatherText}</div>
+//             <div class="place2">{currentLocation.LocalizedName}</div>
+//           </div>
+//         </div>
+//         <div class="date2">{new Date(currentWeather[0].LocalObservationDateTime).toString().substring(0, 3)}</div>
+//         </div>
+//       </article>
+//     </div>
+//   );
+// }
 
  

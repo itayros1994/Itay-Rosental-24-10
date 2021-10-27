@@ -1,8 +1,14 @@
 import React from "react";
 import Card from "@mui/material/Card";
 import { iconsServise } from "../services/IconsService";
+import { useSelector } from "react-redux";
 
 export function DayPreview({ dayForecast }) {
+  const { celcius} = useSelector(
+    (state) => state.weatherModule
+  );
+  
+
   const celciusConverter = (farnhiet) => {
     let celcius = (5 * (farnhiet - 32)) / 9;
     return Math.round(celcius);
@@ -13,7 +19,7 @@ export function DayPreview({ dayForecast }) {
     <article class="widget">
   <div class="weatherIcon"><img src={iconsServise.getWeatherIcon(dayForecast.Day.Icon)} alt="" /></div>
   <div class="weatherInfo">
-    <div class="temperature"><span>{celciusConverter(dayForecast.Temperature.Maximum.Value)}&deg;</span></div>
+    <div class="temperature"> {celcius ? <span>{celciusConverter(dayForecast.Temperature.Maximum.Value)}&deg;C</span>  : <span>{dayForecast.Temperature.Maximum.Value}&deg;f</span>}</div>
     <div class="description">    
       <div class="weatherCondition">{dayForecast.Day.IconPhrase}</div>    
     </div>
@@ -26,16 +32,3 @@ export function DayPreview({ dayForecast }) {
 
 
 
-
-// {/* <Card variant="elevation" className="daily-forecast">
-//       <div>{day.substring(0, 3)}</div>
-//       <img src={iconsServise.getWeatherIcon(dayForecast.Day.Icon)} alt="" />
-//       <div>
-//         {celciusConverter(dayForecast.Temperature.Minimum.Value)}
-//         <span>{"C"}</span>
-//       </div>
-//       <div className="title-appear appear">
-//         {celciusConverter(dayForecast.Temperature.Maximum.Value)}
-//         {"C"}
-//       </div>
-//     </Card> */}

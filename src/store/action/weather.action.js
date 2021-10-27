@@ -70,6 +70,17 @@ export function toggleDarkMode() {
       dispatch(action)
   }
 }
+export function toggleTemperature() {
+  return (dispatch) => {
+      const action = {
+        type: 'TOGGLE_TEMPERATURE',
+      }
+      dispatch(action)
+  }
+}
+
+
+
 export function toggleSnackBar(errorMessege) {
   return (dispatch) => {
       const action = {

@@ -28,7 +28,6 @@ function App() {
       <Router>
         <ThemeProvider theme={theme}>
           <CssBaseline>
-          {/* <Header /> */}
           <Header/>
           <Switch >
             <div className="main-container"> {routes.map(route => {

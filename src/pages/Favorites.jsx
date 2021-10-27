@@ -7,22 +7,25 @@ import { Link } from "react-router-dom";
 
 export function Favorites() {
   const dispatch = useDispatch();
-  const { favoritesLocations, currentWeather } = useSelector(
+  const { favoritesLocations, currentWeather, celcius } = useSelector(
     (state) => state.weatherModule
   );
   
   const locations = favoritesLocations;
   const onRemoveFavorites = (locationKey) => {
     dispatch(removeFromFavorites(locationKey));
-    console.log(locations);
+    console.log(currentWeather);
   };
+
+  // if(currentWeather.length === 0) return
+  // let day = new Date(currentWeather[0].EpochTime).toString().substring(0,3);
 
   const onClickFavorite = (location) => {
     dispatch(loadCurrentWeather(location.Key));
       dispatch(loadDailyForecast(location.Key));
       dispatch(setCurrentLocation(location));
   }
-
+  
   return (
     <div>
       <h1 className="favorties-header">Favorites Cities!</h1>
@@ -36,13 +39,13 @@ export function Favorites() {
               alt=""
             /></div>
           <div class="weatherInfo">
-            <div class="temperature"><span>25&deg;</span></div>
+            <div class="temperature">{celcius ? <span>{currentWeather[0].Temperature.Metric.Value}&deg;</span> :  <span>{currentWeather[0].Temperature.Imperial.Value}&deg;</span>}</div>
             <div class="description">    
-              <div class="weatherCondition">CLOUDY</div>    
+              <div class="weatherCondition">{currentWeather[0].WeatherText}</div>    
               <div class="place">{location.LocalizedName.substring(0, 8)}</div>
             </div>
           </div>
-          <div class="date">1st Jan</div>
+          <div class="date">{new Date(currentWeather[0].EpochTime).toString().substring(0,3)}</div>
               <Button className="remove-favorite"
               onClick={() => onRemoveFavorites(location.Key)}
               color="info"

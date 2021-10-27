@@ -2,11 +2,11 @@
 $border-radius: 20px;
 
 .daily-forecast-container {
-    display: flex;
+  display: flex;
 }
 
 div {
-  font-family: 'Poiret One';
+  font-family: "Poiret One";
 }
 
 .widget {
@@ -15,79 +15,77 @@ div {
   display: flex;
   height: 350px;
   width: 230px;
-margin: 5px !important;
+  margin: 5px !important;
   flex-wrap: wrap;
   cursor: pointer;
   border-radius: $border-radius;
-  
-  .weatherIcon{
+
+  .weatherIcon {
     flex: 1 100%;
     height: 60%;
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
-    background: #FAFAFA;
+    background: #fafafa;
     font-family: weathericons;
     display: flex;
     align-items: center;
     justify-content: space-around;
     font-size: 100px;
-    
-    i{
+
+    i {
       padding-top: 30px;
     }
 
     img {
-
-        width: 170px;
-        height: 100px;
+      width: 170px;
+      height: 100px;
     }
   }
-  
-  .weatherInfo{
+
+  .weatherInfo {
     flex: 0 0 70%;
     height: 40%;
     background: #455a64;
-    border-bottom-left-radius: $border-radius;
+    // border-bottom-left-radius: $border-radius;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: white;
     padding: 10px;
-    
-    .temperature{
+
+    .temperature {
       flex: 0 0 40%;
       width: 100%;
       font-size: 40px;
       display: flex;
       justify-content: space-around;
     }
-    
-    .description{
+
+    .description {
       flex: 0 60%;
       display: flex;
       flex-direction: column;
       width: 100%;
       height: 100%;
       justify-content: center;
-      
-      .weatherCondition{
+
+      .weatherCondition {
         text-transform: uppercase;
         font-size: 15px;
         font-weight: 200;
-        
       }
-      
-      .place{
+
+      .place {
         font-size: 15px;
       }
     }
   }
-  
-  .date{
+
+  .date {
     flex: 0 0 30%;
     // height: 100%;
     background: #566f7b;
-    border-bottom-right-radius: $border-radius;
+    // border-bottom-right-radius: $border-radius;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -98,13 +96,13 @@ margin: 5px !important;
   }
 }
 
-p{
+p {
   position: fixed;
   bottom: 0%;
   right: 2%;
-  a{
+  a {
     text-decoration: none;
-    color: #E4D6A7;
+    color: #e4d6a7;
     font-size: 10px;
   }
 }
@@ -122,69 +120,68 @@ $border-radius: 20px;
   flex-wrap: nowrap;
   cursor: pointer;
   flex-direction: column;
-  border-radius: $border-radius;
-  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
-  
-  .weatherIcon2{
+  // border-radius: $border-radius;
+  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3),
+    0 17px 17px 0 rgba(0, 0, 0, 0.15);
+
+  .weatherIcon2 {
     flex: 1 100%;
     // height: 60%;
-    background: #FAFAFA;
+    background: #fafafa;
     // font-family: weathericons;
     display: flex;
     align-items: center;
     justify-content: space-around;
     font-size: 100px;
-    
-    i{
+
+    i {
       padding-top: 30px;
     }
     img {
-      width: 170px;
-      height: 120px;
+      // width: 100%;
+      height: 200px;
     }
   }
 
-  .weatherInfo2{
+  .weatherInfo2 {
     flex: 0 0 70%;
     height: 40%;
     background: #455a64;
-    border-bottom-left-radius: $border-radius;
+    // border-bottom-left-radius: $border-radius;
     display: flex;
     align-items: center;
     color: white;
-    
-    .temperature2{
+
+    .temperature2 {
       flex: 0 0 40%;
       width: 100%;
       font-size: 65px;
       display: flex;
       justify-content: space-around;
     }
-    .description2{
+    .description2 {
       flex: 0 60%;
       display: flex;
       flex-direction: column;
       width: 100%;
       height: 100%;
       justify-content: center;
-      
-      .weatherCondition2{
+
+      .weatherCondition2 {
         text-transform: uppercase;
         font-size: 17px;
         font-weight: 100;
-
-        
       }
-      
-      .place2{
+
+      .place2 {
         font-size: 30px;
       }
     }
   }
-  .date2{
+  .date2 {
     flex: 0 0 30%;
     background: #ff9800;
-    border-bottom-right-radius: $border-radius;
+    // border-bottom-right-radius: $border-radius;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -194,35 +191,34 @@ $border-radius: 20px;
   }
 }
 
-p{
+p {
   position: fixed;
   bottom: 0%;
   right: 2%;
-  a{
+  a {
     text-decoration: none;
-    color: #E4D6A7;
+    color: #e4d6a7;
     font-size: 10px;
   }
 }
 
 .favorite-btn {
- font-size: 40px !important;
- background-color : #FAFAFA;
- height: 100% !important;
- margin-right: 10px;
- margin-top: 10px;
-
+  font-size: 40px !important;
+  background-color: #fafafa;
+  height: 100% !important;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 
 .current-buttom-container {
-display: flex;
-flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .current-top-container {
   display: flex;
   flex-direction: row;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
 }
 
 @media only screen and (max-width: 600px) {
@@ -239,21 +235,22 @@ flex-direction: row;
     flex-direction: column;
     cursor: pointer;
     // border-radius: $border-radius;
-    box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
-    
-    .weatherIcon2{
+    box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3),
+      0 17px 17px 0 rgba(0, 0, 0, 0.15);
+
+    .weatherIcon2 {
       flex: 1 100%;
       height: 60%;
-      border-top-left-radius: $border-radius;
-      border-top-right-radius: $border-radius;
-      background: #FAFAFA;
+      // border-top-left-radius: $border-radius;
+      // border-top-right-radius: $border-radius;
+      background: #fafafa;
       font-family: weathericons;
       display: flex;
       align-items: center;
       justify-content: space-around;
       font-size: 100px;
-      
-      i{
+
+      i {
         padding-top: 30px;
       }
       img {
@@ -261,10 +258,17 @@ flex-direction: row;
         height: 120px;
       }
     }
-
   }
   .current-weather-container {
     width: 130%;
   }
 
+  .widget2 .weatherInfo2 .temperature2 {
+    font-size: 40px;
+  }
+
+  .current-buttom-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
