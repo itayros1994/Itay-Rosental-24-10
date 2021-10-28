@@ -52,15 +52,21 @@ export function removeFromFavorites(locationKey) {
   }
 }
 
-export function setToFavorites(currentLocation) {
-  return (dispatch) => {
+export function setToFavorites(favorite) {
+  return async (dispatch) => {
+    try {
       const action = {
         type: 'SET_LOCATION_FAVORITE',
-        currentLocation 
+        favorite
       }
       dispatch(action)
+    }
+      catch (err) {
+        dispatch(toggleSnackBar(err));
+      }
   }
 }
+
 
 export function toggleDarkMode() {
   return (dispatch) => {
@@ -80,14 +86,12 @@ export function toggleTemperature() {
 }
 
 
-
 export function toggleSnackBar(errorMessege) {
   return (dispatch) => {
       const action = {
         type: 'TOGGLE_SNACK_BAR',
         errorMessege}
       dispatch(action)
-      
   }
 }
 

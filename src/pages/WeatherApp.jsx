@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { CurrentWeather } from "../cmps/CurrentWeather";
-import { Hero } from "../cmps/Hero";
 import { DailyForecast } from "../cmps/DailyForecast";
 import { WeatherService } from "../services/WeatherService";
 import { locationService } from "../services/locationService";
@@ -12,7 +11,6 @@ import {
   loadDailyForecast,
   setCurrentLocation,
   toggleSnackBar,
-  setUserLocation,
 } from "../store/action/weather.action";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -29,7 +27,6 @@ export function WeatherApp() {
   } = useSelector((state) => state.weatherModule);
 
   const dispatch = useDispatch();
-
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -67,7 +64,6 @@ export function WeatherApp() {
   return (
     <div>
       <div className="top-container">
-      {/* <Hero /> */}
         <CurrentWeather currentWeather={currentWeather}></CurrentWeather>
       </div>
       <DailyForecast dailyForecast={dailyForecast}></DailyForecast>

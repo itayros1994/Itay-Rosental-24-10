@@ -9,7 +9,7 @@ div {
   font-family: "Poiret One";
 }
 
-.widget {
+.widget { 
   top: 50%;
   left: 50%;
   display: flex;
@@ -25,7 +25,7 @@ div {
     height: 60%;
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
-    background: #fafafa;
+    background: #d1c9c9;
     font-family: weathericons;
     display: flex;
     align-items: center;
@@ -76,7 +76,7 @@ div {
       }
 
       .place {
-        font-size: 15px;
+        font-size: 20px;
       }
     }
   }
@@ -155,7 +155,7 @@ $border-radius: 20px;
     .temperature2 {
       flex: 0 0 40%;
       width: 100%;
-      font-size: 65px;
+      font-size: 60px;
       display: flex;
       justify-content: space-around;
     }

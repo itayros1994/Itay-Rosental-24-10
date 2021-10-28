@@ -1,17 +1,20 @@
-// import autoComplete from '../data/autoCompleteRespons.json'
-// import currentWeather from '../data/currentWeather.json'
-// import dailyForecast from '../data/5DaysForecasts.json'
-// import userLocation from '../data/userLocation.json'
+import autoComplete from '../data/autoCompleteRespons.json'
+import currentWeather from '../data/currentWeather.json'
+import dailyForecast from '../data/5DaysForecasts.json'
+import userLocation from '../data/userLocation.json'
 import axios from 'axios'
 
 // const API_KEY = '0NGDR7qbB3jAERFSSyArpMpe4Zq3TCQV'
-const API_KEY = 'f1ihnGpONArGZtNAW0GN02tuAEBGMUG6'
+// const API_KEY = 'f1ihnGpONArGZtNAW0GN02tuAEBGMUG6'
+const API_KEY = 'Y8RgWkfnkR5YW0qdYKAo37G47EibuAGA'
+
 
 export const WeatherService = {
     getLocations,
     getCurrentWeather,
     getDailyForecast,
-    getKeyFromCords
+    getKeyFromCords,
+
 }
 
 function getLocations(location) {
@@ -44,4 +47,3 @@ function getKeyFromCords(geoposition) {
 return axios.get(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${geoposition.latitude}%2C${geoposition.longitude}&language=en`).then(res => res.data)
 
 }
-

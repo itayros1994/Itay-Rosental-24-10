@@ -16,8 +16,8 @@ export function weatherReducer(state = initialState, action) {
         case 'SET_DAILY_FORECAST':
             return { ...state, dailyForecast: action.dailyForecast }
         case 'SET_LOCATION_FAVORITE':
-            if(state.favoritesLocations.includes(action.currentLocation)) return state 
-            return { ...state, favoritesLocations: [...state.favoritesLocations, action.currentLocation] }
+            if(state.favoritesLocations.findIndex(location => location.currentLocation.Key === action.favorite.currentLocation.Key) !== -1) return state 
+            return { ...state, favoritesLocations: [...state.favoritesLocations, action.favorite] }
         case 'SET_CURRENT_LOCATION':
             return { ...state, currentLocation: action.currentLocation }
         case 'TOGGLE_DARK_MODE':
@@ -27,7 +27,7 @@ export function weatherReducer(state = initialState, action) {
         case 'TOGGLE_SNACK_BAR':
             return { ...state, snackBarOpen: !state.snackBarOpen, errorMessege: action.errorMessege  }
         case 'REMOVE_LOCATION_FAVORITE':
-            return { ...state, favoritesLocations: state.favoritesLocations.filter(location => location.Key !== action.locationKey) }
+            return { ...state, favoritesLocations: state.favoritesLocations.filter(location => location.currentLocation.Key !== action.locationKey) }
         default:
             return state
     }
